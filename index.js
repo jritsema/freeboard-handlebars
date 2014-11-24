@@ -17,14 +17,22 @@
 
     this.onCalculatedValueChanged = function (settingName, newValue) {
 
-      if (settingName == "view") {
+      //helpers need to be registered before compile is called
+      if (settingName === 'helpers') {
+        console.log('registering helpers');
+        Handlebars.registerHelper(newValue);
+      }      
+
+      //the template needs to be re-compiled when the view changes
+      if (settingName === 'view') {
         console.log('view changed');
 
         //compile the template
         template = Handlebars.compile(newValue);
       }
 
-      if (settingName == 'model') {
+      //the model is injected into the compiled template to be rendered as HTML
+      if (settingName === 'model') {
         console.log('model changed');        
 
         //evaluate the handlebars template by executing the template with a context
@@ -52,6 +60,12 @@
     ],    
     "settings": [
       {
+        "name": "helpers",
+        "display_name": "Helpers",
+        "type": "calculated",
+        "description": "Code that gets passed to Handlebars.registerHelper().  See Handlebars docs."
+      },    
+      {
         "name": "view",
         "display_name": "view",
         "type": "calculated",
@@ -62,7 +76,7 @@
         "display_name": "model",
         "type": "calculated",
         "description": "Model bound to view. Typically an exposed datasource or some code to manipulate data for the view"
-      },      
+      },
       {
         "name": "height",
         "display_name": "Height Blocks",

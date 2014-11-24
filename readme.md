@@ -33,3 +33,29 @@ Assuming you have an Open Weather Map API datasource setup named 'Weather'
 ##### Model
 
 `datasources["Weather"]`
+
+
+
+### Helpers Example
+
+##### Helpers
+
+```
+return {
+  fullName: function (person) {
+    return person.firstName + ' ' + person.lastName;
+  }
+};
+```
+
+##### View
+
+```
+<span>{{fullName person}}</span>
+```
+
+##### Model
+
+```
+{ person: { firstName: 'John', lastName: 'Doe' } }
+```
