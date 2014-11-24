@@ -20,6 +20,10 @@
       //helpers need to be registered before compile is called
       if (settingName === 'helpers') {
         console.log('registering helpers');
+
+        //unregister (in case it's already been registered)
+        Handlebars.unregisterHelper(newValue);
+        
         Handlebars.registerHelper(newValue);
       }      
 
