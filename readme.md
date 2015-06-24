@@ -3,6 +3,8 @@ Freeboard Handlebars Widget Plugin
 
 This is a widget plugin for [Freeboard](http://freeboard.io) (open source web ui dashboard) that allows dashboard widget authoring using [Handlebars](http://handlebarsjs.com) templates.  It is very similar to the built-in HTML widget, but supports a better model/view separation so that Freeboard datasources or other JavaScript data can be bound to a specified view.
 
+Also, see the [freeboard-handlebars-widget](https://github.com/jritsema/freeboard-handlebars-widget) starter template which allows you to develop handlebars widgets using files on your file system as an alternative to using the freeboard widget editor (below).
+
 ![Screenshot](handlebars.PNG)
 
 
